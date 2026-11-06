@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+D="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
+PY="$D/.venv/bin/python"; [[ -x "$PY" ]] || PY=python3
+export PYTHONPATH="$D${PYTHONPATH:+:$PYTHONPATH}"
+exec "$PY" -m voice_profile.cli "$@"
